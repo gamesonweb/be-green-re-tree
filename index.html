@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Babylon.js - Re-Tree</title>
+    <link rel="stylesheet" href="style.css">
+    <audio id="background-music" src="assets/music/tmp8tftcirw.mp3" type="audio/mpeg" preload="auto"></audio>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://preview.babylonjs.com/babylon.js"></script>
+    <script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+    <script src="assets/cannon.js-master/build/cannon.min.js"></script>
+    <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
+    <script src="https://preview.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
+    <script src="main.js"></script>
+
+    <!-- Ant -->
+    <script src="js/ant/antController.js"></script>
+    <script src="js/ant/antModel.js"></script>
+    <script src="js/ant/antView.js"></script>
+
+    <!-- Audio -->
+    <script src="js/audio/audioController.js"></script>
+    <script src="js/audio/audioModel.js"></script>
+
+    <!-- Game -->
+    <script src="js/game/gameController.js"></script>
+    <script src="js/game/gameGui.js"></script>
+
+    <!-- Item -->
+    <script src="js/item/itemController.js"></script>
+    <script src="js/item/itemModel.js"></script>
+    <script src="js/item/itemView.js"></script>
+    
+    <!-- Map -->
+    <script src="js/map/continuousGroundView.js"></script>
+    <script src="js/map/groundView.js"></script>
+    <script src="js/map/skyboxView.js"></script>
+    <script src="js/map/waterView.js"></script>
+    
+    <!-- Menu -->
+    <script src="js/menu/userMenuController.js"></script>
+    <script src="js/menu/userMenuView.js"></script>
+    
+    <!-- Tree -->
+    <script src="js/tree/treeController.js"></script>
+    <script src="js/tree/treeModel.js"></script>
+    <script src="js/tree/treeView.js"></script>
+    <script src="js/tree/treeUpgraderModel.js"></script>
+    
+    <!-- User -->
+    <script src="js/user/userDataModel.js"></script>
+</head>
+<body>
+    <form id="example-form" onsubmit="sendUserDataToAPI(event)">
+        <!-- Your form elements -->
+        <button type="submit">Submit</button>
+    </form>
+    <canvas id="renderCanvas"></canvas>
+    <script>
+        initGame();
+    </script>
+</body>
+</html>
