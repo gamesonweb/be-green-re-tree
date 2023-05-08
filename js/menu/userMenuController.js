@@ -2,7 +2,7 @@ class UserMenuController {
     constructor(gameGui, userDataModel) {
         this.gameGui = gameGui;
         this.userDataModel = userDataModel;
-
+        this.create = false;
         this.userMenuView = new UserMenuView(this.gameGui);
         
         this.setupUserMenuButtonEvent();
@@ -37,6 +37,8 @@ class UserMenuController {
                 case 1:
                     // Create new user
                     // Add your create new user logic here
+                    this.create = true;
+                    this.userMenuView.showUsernameInput();
                     break;
                 case 2:
                     // Connect user
@@ -60,31 +62,56 @@ class UserMenuController {
         };
 
         this.userMenuView.onUsernameValidate = async (username) => {
-            // Add your fetch user logic here
-            fetch(`${ConfigModel.get_url()}visit_user/${username}`)
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        throw new Error('User not found');
-                    }
+            
+            let url = ConfigModel.get_url() + "visit_user/" + username;
+            if (this.create) {
+                fetch(`${ConfigModel.get_url()}create_user`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        username: username, // Replace this with the actual username
+                        trees: JSON.stringify(this.userDataModel.userData.trees),
+                        CO2: this.userDataModel.userData.CO2,
+                        CO2_per_sec: this.userDataModel.userData.CO2_per_sec,
+                    }),
                 })
+                .then(response => response.json())
+                .then(console.log)
                 .then(data => {
                     console.log(data);
-                    this.userDataModel.userData = data;
-                    // Save the data to the local storage
-                    this.userDataModel.saveUserData();
-
+                    this.userDataModel.userData.username = username;
                     // Close the user menu after fetching the data
                     this.userMenuView.dispose();
-                    // Reload the page to update the game
-                    location.reload();
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    // Display an error message
-                    this.userMenuView.displayErrorMessage('User not found. Please try again.');
                 });
+            }
+            else {
+                fetch(url)
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            throw new Error('User not found');
+                        }
+                    })
+                    .then(data => {
+                        console.log(data);
+                        this.userDataModel.userData = data;
+                        // Save the data to the local storage
+                        this.userDataModel.saveUserData();
+
+                        // Close the user menu after fetching the data
+                        this.userMenuView.dispose();
+                        // Reload the page to update the game
+                        location.reload();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        // Display an error message
+                        this.userMenuView.displayErrorMessage('User not found. Please try again.');
+                    });
+            }
         };
 
         this.userMenuView.onUsernameCancel = () => {
