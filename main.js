@@ -49,6 +49,9 @@ async function initGame() {
     const pointLight = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(0, 5, 0), scene);
 
     // Create 25 trees
+    // BUG HERE ONLINE FIRST CONNEXION: caught (in promise) TypeError: Cannot read properties of undefined (reading 'length')
+    // Coreectd the user data first pelase
+    console.log(userDataModel.userData.trees);
     const numTrees = userDataModel.userData.trees.length;
     const treeViews = [];
     const generatedTreeModels = [];

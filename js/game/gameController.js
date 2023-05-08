@@ -71,6 +71,8 @@ class GameController {
         const initialUserData = this.createInitialUserData();
         this.userDataModel.userData = initialUserData;
         this.userDataModel.saveUserData();
+        // Reload the page
+        window.location.reload();
         this.updateScore();
     }
 

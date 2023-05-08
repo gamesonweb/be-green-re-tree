@@ -41,6 +41,78 @@ class TreeUpgraderModel {
         cost: 39500,
         co2PerSecond: 512,
       },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
+      {
+        cost: 39500,
+        co2PerSecond: 512,
+      },
     ];
   }
 
