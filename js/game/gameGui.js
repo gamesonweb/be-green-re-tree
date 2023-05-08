@@ -29,6 +29,7 @@ class GameGui {
         }
         this.createMusicButtons();
         this.createVolumeSlider();
+        this.createLeaderboardButton();
     }
 
     createUserMenuButton() {
@@ -43,6 +44,25 @@ class GameGui {
         this.userMenuButton.left = "-60px";
         this.userMenuButton.zIndex = 10; // Make sure the button is on top of other GUI elements
         this.advancedTexture.addControl(this.userMenuButton);
+    }
+
+    createLeaderboardButton() {
+        this.scoreboardButton = this.GUI.Button.CreateSimpleButton("scoreboardButton", "Scoreboard");
+        this.scoreboardButton.width = "120px";
+        this.scoreboardButton.height = "40px";
+        this.scoreboardButton.color = "white";
+        this.scoreboardButton.background = "blue";
+        this.scoreboardButton.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+        this.scoreboardButton.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+        this.scoreboardButton.top = "10px";
+        this.scoreboardButton.left = "-170px";
+        this.scoreboardButton.zIndex = 10; // Make sure the button is on top of other GUI elements
+        this.advancedTexture.addControl(this.scoreboardButton);
+        // Add event listener
+        this.scoreboardButton.onPointerClickObservable.add(() => {
+            // Open in new tab the user menu page
+            window.open("scoreboard.html", "_blank");
+        });
     }
 
     /// Add this method to the GameGui class
