@@ -23,10 +23,10 @@ class GameController {
                 }
             }, 1000);
 
-            setInterval(() => {
-                // this.sendUserDataToAPI();
-                // document.getElementById('example-form').submit();
-            }, 3000); // Call the API every 10 seconds    
+            // setInterval(() => {
+            //     // this.sendUserDataToAPI();
+            //     // document.getElementById('example-form').submit();
+            // }, 3000); // Call the API every 10 seconds    
 
             // Add an event listener to the reset button
             this.gameGui.resetButton.onPointerUpObservable.add(() => {

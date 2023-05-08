@@ -47,7 +47,7 @@
                     const visitCell = document.createElement('td');
                     const visitLink = document.createElement('a');
                     visitLink.href = `index.html?visit=${encodeURIComponent(username)}`;
-                    visitLink.textContent = 'Visit';
+                    visitLink.textContent = 'Click to visit ' + username;
                     visitCell.appendChild(visitLink);
                     row.appendChild(visitCell);
 

@@ -72,10 +72,13 @@ class UserMenuController {
                 .then(data => {
                     console.log(data);
                     this.userDataModel.userData = data;
-                    // Perform any additional actions with the fetched data, if necessary
+                    // Save the data to the local storage
+                    this.userDataModel.saveUserData();
 
                     // Close the user menu after fetching the data
                     this.userMenuView.dispose();
+                    // Reload the page to update the game
+                    location.reload();
                 })
                 .catch(error => {
                     console.error('Error:', error);
