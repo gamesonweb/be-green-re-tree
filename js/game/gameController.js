@@ -2,7 +2,7 @@ class GameController {
     constructor(gameGui, userDataModel) {
         this.gameGui = gameGui;
         this.userDataModel = userDataModel;
-        this.API_ENDPOINT = 'http://127.0.0.1:5000';
+        this.API_ENDPOINT = ConfigModel.get_url();
 
         this.init();
     }
@@ -39,7 +39,7 @@ class GameController {
         console.log('Sending user data to API');
         event.preventDefault(); // Prevent page reload
 
-        fetch(`${this.API_ENDPOINT}/save_data`, {
+        fetch(`${this.API_ENDPOINT}save_data`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',

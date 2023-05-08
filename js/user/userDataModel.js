@@ -17,7 +17,7 @@ class UserDataModel {
     }
 
     static async fetchUserData(username) {
-        const response = await fetch('http://127.0.0.1:5000/visit_user/' + username);
+        const response = await fetch(ConfigModel.get_url() + 'visit_user/' + username);
         if (!response.ok) {
             throw new Error('An error occurred while fetching user data');
         }

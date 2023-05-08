@@ -61,7 +61,7 @@ class UserMenuController {
 
         this.userMenuView.onUsernameValidate = async (username) => {
             // Add your fetch user logic here
-            fetch(`http://127.0.0.1:5000/visit_user/${username}`)
+            fetch(`${ConfigModel.get_url()}visit_user/${username}`)
                 .then(response => {
                     if (response.ok) {
                         return response.json();
