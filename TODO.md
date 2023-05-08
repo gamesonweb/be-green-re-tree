@@ -7,7 +7,7 @@
 - [x] Add upside down island
 - [x] Find beatifull tree mesh
 - [x] Find ant mesh
-- [ ] Create event CO2 capsule mesh
+- [x] Create event CO2 capsule mesh
 - [ ] Add 7 more trees
 
 ## Music and volume
@@ -20,7 +20,7 @@
 - [x] Add the tree's upgrade system
 - [ ] Build the items shop to buy house and other items
 
-## Ant mode
+## Ant mode ! Pending for the moment, replaced by user click !
 - [x] Develop the ant controls
 - [ ] Add collision and gravity to the ant
 - [ ] Add the interaction with C02 capsules

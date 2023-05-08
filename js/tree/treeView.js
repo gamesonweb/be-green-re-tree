@@ -4,7 +4,22 @@ class TreeView {
         this.scene = scene;
         this.treeMesh = null;
 
+        this.listeners = {};
+
         // this.init();
+    }
+
+    on(eventName, callback) {
+        if (!this.listeners[eventName]) {
+            this.listeners[eventName] = [];
+        }
+        this.listeners[eventName].push(callback);
+    }
+
+    emit(eventName, data) {
+        if (this.listeners[eventName]) {
+            this.listeners[eventName].forEach(callback => callback(data));
+        }
     }
 
     async init() {
@@ -21,7 +36,10 @@ class TreeView {
     
         // Load the new mesh
         this.treeMesh = await this.loadTreeMesh();
-    }    
+        
+        // Emit the 'meshUpdated' event
+        this.emit('meshUpdated');
+    }
 
     updateTreePosition(treeModel) {
         console.log("Updating tree position", treeModel); // Log the treeModel to check the values

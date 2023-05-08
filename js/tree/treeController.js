@@ -8,6 +8,23 @@ class TreeController {
         this.buyButton = null;
 
         this.attachEvents();
+        this.initTreeViewCallback();
+    }
+
+    initTreeViewCallback() {
+        this.treeView.on('meshUpdated', () => this.reattachClickEvents());
+    }
+
+    reattachClickEvents() {
+        this.treeView.treeMesh.forEach(mesh => {
+            mesh.actionManager = new BABYLON.ActionManager(this.treeView.scene);
+            mesh.actionManager.registerAction(
+                new BABYLON.ExecuteCodeAction(
+                    BABYLON.ActionManager.OnPickTrigger,
+                        (evt) => this.handleTreeClick(evt, this.treeView.treeModel)
+                    )
+                    );
+                });
     }
             
     handleTreeClick(evt, treeModel) {
