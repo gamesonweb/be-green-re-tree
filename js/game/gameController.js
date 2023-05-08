@@ -88,6 +88,7 @@ class GameController {
         return {
             CO2: 0,
             CO2_per_sec: 1,
+            CO2_spawn_rate: 10000, // Add this line
             trees: trees,
         };
     }

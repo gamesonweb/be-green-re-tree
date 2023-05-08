@@ -3,9 +3,9 @@ class GameGui {
         this.scene = scene;
         this.userDataModel = userDataModel;
         this.userData = userDataModel.userData;
-        this.antModel = new AntModel(scene);
-        this.antView = new AntView(this.antModel, scene);
-        this.antController = new AntController(this.antModel, this.antView, scene);
+        // this.antModel = new AntModel(scene);
+        // this.antView = new AntView(this.antModel, scene);
+        // this.antController = new AntController(this.antModel, this.antView, scene);
         this.antModeActivated = false;
 
         this.GUI = BABYLON.GUI;

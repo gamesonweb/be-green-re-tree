@@ -33,6 +33,13 @@ async function initGame() {
 
     gameController.initGameComponents(scene);
 
+    // Instantiate the Co2View and Co2Controller classes
+    const co2View = new Co2View(scene);
+    const co2Controller = new Co2Controller(co2View, userDataModel, gameController);
+
+    // Start CO2 sphere spawning
+    co2Controller.startSpawning();
+
     const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 50, new BABYLON.Vector3(0, 0, 0), scene);
     camera.attachControl(renderCanvas, true);
 
@@ -40,9 +47,6 @@ async function initGame() {
 
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
     const pointLight = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(0, 5, 0), scene);
-
-    // const groundModel = new GroundModel(scene);
-    const antModel = new AntModel(scene);
 
     // Create 25 trees
     const numTrees = userDataModel.userData.trees.length;
