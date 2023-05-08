@@ -24,7 +24,7 @@ class GameGui {
         this.createTreeSlidersContainer();
         if(!this.userDataModel.visitor) {
             this.createUserMenuButton();
-            // this.createAntModeButton();
+            this.createSaveButton();
             this.createResetButton();
         }
         this.createMusicButtons();
@@ -262,9 +262,30 @@ class GameGui {
         this.scoreText.text = `CO2: ${value}`;
     }
 
+    // To move from here
+    sendUserDataToAPI() {
+        console.log('Sending user data to API');
+        // event.preventDefault(); // Prevent page reload
+
+        fetch(`${ConfigModel.get_url()}save_data`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                username: this.userDataModel.username, // Replace this with the actual username
+                trees: JSON.stringify(this.userDataModel.trees),
+                CO2: this.userDataModel.CO2,
+                CO2_per_sec: this.userDataModel.CO2_per_sec,
+            }),
+        })
+        .then(response => response.json())
+        .then(console.log);
+    }  
+
     // Ant mode
-    createAntModeButton() {
-        this.antModeButton = this.GUI.Button.CreateSimpleButton("antModeButton", "Toggle Ant Mode");
+    createSaveButton() {
+        this.antModeButton = this.GUI.Button.CreateSimpleButton("Save online", "Save online");
         this.antModeButton.width = "200px";
         this.antModeButton.height = "40px";
         this.antModeButton.color = "white";
@@ -277,8 +298,13 @@ class GameGui {
         this.advancedTexture.addControl(this.antModeButton);
 
         this.antModeButton.onPointerUpObservable.add(() => {
-            this.antMode = !this.antMode;
-            this.toggleAntMode(this.antMode, this.scene);
+            // If guest is !true, save with api
+            console.log(this.userDataModel)
+            if (this.userDataModel.username) {
+                this.sendUserDataToAPI();
+            } else {
+                console.log("You are a guest, you can't save your score");
+            }
         });
     }
 

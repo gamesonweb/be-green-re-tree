@@ -23,10 +23,14 @@ class GameController {
                 }
             }, 1000);
 
-            // setInterval(() => {
-            //     // this.sendUserDataToAPI();
-            //     // document.getElementById('example-form').submit();
-            // }, 3000); // Call the API every 10 seconds    
+            setInterval(() => {
+                if(this.userDataModel.userData.username){
+                    this.sendUserDataToAPI();
+                } else {
+                    console.log('User is a guest, not sending data to API');
+                }
+                // document.getElementById('example-form').submit();
+            }, 10000); // Call the API every 10 seconds    
 
             // Add an event listener to the reset button
             this.gameGui.resetButton.onPointerUpObservable.add(() => {
@@ -34,18 +38,19 @@ class GameController {
             });
         }
     }
-
-    sendUserDataToAPI(event) {
+    
+    // To move from here
+    sendUserDataToAPI() {
         console.log('Sending user data to API');
-        event.preventDefault(); // Prevent page reload
+        // event.preventDefault(); // Prevent page reload
 
-        fetch(`${this.API_ENDPOINT}save_data`, {
+        fetch(`${ConfigModel.get_url()}save_data`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: new URLSearchParams({
-                username: 'exampleUser', // Replace this with the actual username
+                username: this.userDataModel.userData.username, // Replace this with the actual username
                 trees: JSON.stringify(this.userDataModel.userData.trees),
                 CO2: this.userDataModel.userData.CO2,
                 CO2_per_sec: this.userDataModel.userData.CO2_per_sec,
@@ -53,7 +58,7 @@ class GameController {
         })
         .then(response => response.json())
         .then(console.log);
-    }    
+    }  
 
     incrementScore(amount) {
         this.userDataModel.userData.CO2 += amount;
