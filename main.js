@@ -39,9 +39,17 @@ async function initGame() {
 
     // Start CO2 sphere spawning
     co2Controller.startSpawning();
-
     const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 50, new BABYLON.Vector3(0, 0, 0), scene);
-    camera.attachControl(renderCanvas, true);
+
+    // Set camera constraints
+    // camera.lowerAlphaLimit = -Math.PI / 2;
+    // camera.upperAlphaLimit = -Math.PI / 2;
+    camera.lowerBetaLimit = Math.PI / 4; // Change this value to your desired lower limit for looking up (in radians)
+    camera.upperBetaLimit = Math.PI / 2.2; // Change this value to your desired upper limit for looking down (in radians)
+    camera.lowerRadiusLimit = 30; // Change this value to your desired minimum zoom distance
+    camera.upperRadiusLimit = 100; // Change this value to your desired maximum zoom distance
+    
+    camera.attachControl(renderCanvas, true);    
 
     const previousCamera = scene.activeCamera;
 
