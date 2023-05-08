@@ -24,7 +24,7 @@ class GameGui {
         this.createTreeSlidersContainer();
         if(!this.userDataModel.visitor) {
             this.createUserMenuButton();
-            this.createAntModeButton();
+            // this.createAntModeButton();
             this.createResetButton();
         }
         this.createMusicButtons();
