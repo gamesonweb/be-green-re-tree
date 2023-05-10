@@ -26,6 +26,20 @@ async function initGame() {
     // Instantiate the GameGui class
     const gameGui = new GameGui(scene, userDataModel.userData, audioModel);
 
+    // Check for milestones
+    const milestoneController = new MilestoneController(gameGui);
+    milestoneController.loadMilestones(userDataModel.userData.trees);
+
+    console.log(milestoneController.milestones);
+
+    // Get the last reached milestone
+    const lastMilestone = milestoneController.milestones.filter(milestone => milestone.reached).pop();
+
+    // Show the milestone recap message
+    if (lastMilestone) {
+        gameGui.showMilestoneRecap(lastMilestone);
+    }
+
     // Instantiate the GameController class
     const gameController = new GameController(gameGui, userDataModel);
 

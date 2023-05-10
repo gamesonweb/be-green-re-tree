@@ -7,13 +7,14 @@ class UserMenuView {
     async init() {
         this.userMenu = new BABYLON.GUI.Rectangle("userMenu");
         // Customize the appearance of the menu
-        this.userMenu.width = "50%";
-        this.userMenu.height = "80%";
+        this.userMenu.width = "30%";
+        this.userMenu.height = "70%";
+        this.userMenu.left = "5%";
         this.userMenu.color = "white";
         this.userMenu.thickness = 4;
         this.userMenu.background = "black";
         this.userMenu.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
-        this.userMenu.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+        this.userMenu.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
     
         // Add the menu options to the user menu
         for (let i = 0; i < 5; i++) {

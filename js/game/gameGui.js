@@ -32,6 +32,39 @@ class GameGui {
         this.createLeaderboardButton();
     }
 
+    showMilestoneRecap(lastMilestone) {
+        // Create a fullscreen UI
+        const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI", true);
+
+        // Create a StackPanel to hold the milestone recap message
+        const recapPanel = new BABYLON.GUI.StackPanel();
+        recapPanel.width = "400px";
+        recapPanel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+        recapPanel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+        advancedTexture.addControl(recapPanel);
+
+        // Create a TextBlock for the milestone recap message
+        const recapText = new BABYLON.GUI.TextBlock();
+        recapText.text = `Last milestone reached: Level ${lastMilestone.level}`;
+        recapText.color = "white";
+        recapText.fontSize = 18;
+        recapText.height = "50px";
+        recapPanel.addControl(recapText);
+
+        // Create a close button to dismiss the recap message
+        const closeButton = BABYLON.GUI.Button.CreateSimpleButton("closeButton", "Close");
+        closeButton.width = "100%";
+        closeButton.height = "40px";
+        closeButton.color = "white";
+        closeButton.background = "black";
+        closeButton.paddingTop = "2px";
+        closeButton.paddingBottom = "2px";
+        closeButton.onPointerUpObservable.add(() => {
+            advancedTexture.removeControl(recapPanel);
+        });
+        recapPanel.addControl(closeButton);
+    }
+
     showMilestoneMessage(question) {
         // Create a fullscreen UI
         const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
