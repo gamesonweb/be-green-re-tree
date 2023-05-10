@@ -117,6 +117,12 @@ class TreeController {
             // Update user's CO2 and owned trees
             this.userDataModel.userData.CO2 -= upgradeCost;
             treeToUpgrade.level = nextLevel;
+            if (treeToUpgrade.level == 5) {
+                console.log("New milestone reached!")
+                // Get a random question on file csv
+                let question = QuestionsModel.get_random();
+                console.log(question);
+            }
 
             // Update user's total CO2 per second
             treeToUpgrade.co2PerSecond = this.treeUpgraderModel.getCo2PerSecond(nextLevel);
