@@ -89,7 +89,7 @@ async function initGame() {
             const treeModel = new TreeModel(id, level, co2PerSecond, x, 0, z);
             const treeView = new TreeView(treeModel, scene);
             await treeView.init(); // Wait for the init method to complete
-            const treeController = new TreeController(treeView, userDataModel, gameGui);
+            const treeController = new TreeController(treeView, userDataModel, gameGui, milestoneController);
             treeViews.push(treeView);
             generatedTreeModels.push(treeModel);
         }

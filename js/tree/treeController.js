@@ -1,8 +1,9 @@
 class TreeController {
-    constructor(treeView, userDataModel, gameGui) {
+    constructor(treeView, userDataModel, gameGui, milestoneController) {
         this.treeView = treeView;
         this.userDataModel = userDataModel;
         this.gameGui = gameGui;
+        this.milestoneController = milestoneController;
         this.treeUpgraderModel = new TreeUpgraderModel();
         this.selectedTree = null;
         this.buyButton = null;
@@ -106,43 +107,58 @@ class TreeController {
         // Get the tree to upgrade
         const treeToUpgrade = this.userDataModel.userData.trees[treeIndex];
         const oldCo2PerSecond = treeToUpgrade.co2PerSecond;
-
+    
         // Check if the tree can be upgraded
         const nextLevel = treeToUpgrade.level + 1;
-
+    
         const upgradeCost = this.treeUpgraderModel.getUpgradeCost(nextLevel);
         const userCO2 = this.userDataModel.userData.CO2;
-
+    
         if (userCO2 >= upgradeCost) {
             // Update user's CO2 and owned trees
             this.userDataModel.userData.CO2 -= upgradeCost;
             treeToUpgrade.level = nextLevel;
-            let i = 5;
-            if (treeToUpgrade.level == i) {
-                console.log("New milestone reached!")
-                // Get a random question on file csv
-                let question = QuestionsModel.get_random();
-                console.log(question);
-                // Check if there are no other trees at level 5
-                let noLeve5Trees = this.userDataModel.userData.trees.every(tree => tree.level <= i);
-
-                if (noLeve5Trees) {
-                    console.log("New milestone reached!")
+    
+            // Test if treeToUpgrade.level is a milestone
+            if (this.milestoneController.milestoneTexts.hasOwnProperty(treeToUpgrade.level)) {
+                // Check if the milestone is not already reached
+                if (!this.milestoneController.milestones.includes(treeToUpgrade.level)) {
+                    // Add the milestone to the reached milestones
+                    this.milestoneController.milestones.push(treeToUpgrade.level);
+    
+                    // Get a random question from the CSV file
+                    let question = QuestionsModel.get_random();
+                    console.log(question);
+    
                     this.gameGui.showMilestoneMessage(question);
                 }
             }
-
+    
             // Update user's total CO2 per second
             treeToUpgrade.co2PerSecond = this.treeUpgraderModel.getCo2PerSecond(nextLevel);
             this.userDataModel.userData.CO2_per_sec = this.userDataModel.userData.CO2_per_sec - oldCo2PerSecond + treeToUpgrade.co2PerSecond;
-
+    
             // Save updated user data
             this.userDataModel.saveUserData();
-
+    
             // Update the view
             this.updateView(treeToUpgrade);
         } else {
             console.log("Not enough CO2 to buy the upgrade.");
         }
-    }
+    }    
 }    
+
+// if (treeToUpgrade.level == i) {
+//     console.log("New milestone reached!")
+//     // Get a random question on file csv
+//     let question = QuestionsModel.get_random();
+//     console.log(question);
+//     // Check if there are no other trees at level 5
+//     let noLeve5Trees = this.userDataModel.userData.trees.every(tree => tree.level <= i);
+
+//     if (noLeve5Trees) {
+//         console.log("New milestone reached!")
+//         this.gameGui.showMilestoneMessage(question);
+//     }
+// }

@@ -14,7 +14,7 @@
 - [x] Create the ambiant music (made with MuBERT)
 - [x] Rebuild the music system that we moved from the html component to the GUI
 - [x] Rebuild in the GUI the volume system
-- [ ] Create the events musics
+- [x] Create the events musics
 
 ## Shop
 - [x] Add the tree's upgrade system
@@ -34,7 +34,7 @@
 - [x] Change the mecanism of guest using and adding username on cookies
 
 ## Events
-- [ ] Write the spontaneous questions to earn CO2
+- [x] Write the milestone questions to earn CO2
 - [x] Generate CO2 on the map each Xsec
 
 ## Story

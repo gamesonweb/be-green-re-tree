@@ -10,13 +10,13 @@ class MilestoneController {
             { level: 21, reached: false },
         ];
         this.milestoneTexts = {
-            0: "Custom text for milestone Level 0",
-            5: "Custom text for milestone Level 5",
-            9: "Custom text for milestone Level 9",
-            12: "Custom text for milestone Level 12",
-            17: "Custom text for milestone Level 17",
-            21: "Custom text for milestone Level 21",
-        };
+            0: "You just arrived on a deserted island with dead trees. Do your best to reforest it!",
+            5: "Great start! You've reached Level 5. Keep planting trees and watch your forest grow!",
+            9: "Impressive! Your trees have reached Level 9. Continue your efforts to make the island greener.",
+            12: "Amazing work! Your trees are now Level 12. The island's transformation is well underway.",
+            17: "Incredible progress! Your trees have reached Level 17. The once deserted island is now a thriving forest.",
+            21: "Outstanding achievement! You've reached Level 21. Your commitment has turned the island into a lush, green paradise.",
+        };        
     }
 
     checkForMilestones(treeLevel) {

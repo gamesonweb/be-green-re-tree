@@ -49,9 +49,9 @@ class GameGui {
         customTextBlock.color = "white";
         customTextBlock.fontSize = 16;
         customTextBlock.height = "50px";
+        customTextBlock.textWrapping = BABYLON.GUI.TextWrapping.WordWrap;
         recapPanel.addControl(customTextBlock);
         
-
         // Create a close button to dismiss the recap message
         const closeButton = BABYLON.GUI.Button.CreateSimpleButton("closeButton", "Close");
         closeButton.width = "100%";
@@ -67,6 +67,7 @@ class GameGui {
     }
 
     showMilestoneMessage(question) {
+        console.log("question");
         // Create a fullscreen UI
         const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
 
