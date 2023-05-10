@@ -122,6 +122,13 @@ class TreeController {
                 // Get a random question on file csv
                 let question = QuestionsModel.get_random();
                 console.log(question);
+                // Check if there are no other trees at level 9
+                let noLeve5Trees = this.userDataModel.userData.trees.every(tree => tree.level <= 5);
+
+                if (noLeve5Trees) {
+                    console.log("New milestone reached!")
+                    this.gameGui.showMilestoneMessage(question);
+                }
             }
 
             // Update user's total CO2 per second

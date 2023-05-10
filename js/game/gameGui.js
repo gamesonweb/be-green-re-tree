@@ -32,6 +32,42 @@ class GameGui {
         this.createLeaderboardButton();
     }
 
+    showMilestoneMessage(question) {
+        // Create a fullscreen UI
+        const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+
+        // Create a StackPanel to hold the question and answers
+        const questionPanel = new BABYLON.GUI.StackPanel();
+        questionPanel.width = "400px";
+        questionPanel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+        questionPanel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+        advancedTexture.addControl(questionPanel);
+
+        // Create a TextBlock for the question
+        const questionText = new BABYLON.GUI.TextBlock();
+        questionText.text = question.question;
+        questionText.color = "white";
+        questionText.fontSize = 18;
+        questionText.height = "50px";
+        questionPanel.addControl(questionText);
+
+        // Create Buttons for the answers
+        question.answers.forEach((answer, index) => {
+            const answerButton = BABYLON.GUI.Button.CreateSimpleButton("answerButton" + index, answer);
+            answerButton.width = "100%";
+            answerButton.height = "40px";
+            answerButton.color = "white";
+            answerButton.background = "black";
+            answerButton.paddingTop = "2px";
+            answerButton.paddingBottom = "2px";
+            answerButton.onPointerUpObservable.add(() => {
+                console.log("Answer clicked:", answer);
+                advancedTexture.removeControl(questionPanel);
+            });
+            questionPanel.addControl(answerButton);
+        });
+    }
+
     createUserMenuButton() {
         this.userMenuButton = this.GUI.Button.CreateSimpleButton("userMenuButton", "User Menu");
         this.userMenuButton.width = "100px";
