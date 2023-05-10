@@ -30,14 +30,13 @@ async function initGame() {
     const milestoneController = new MilestoneController(gameGui);
     milestoneController.loadMilestones(userDataModel.userData.trees);
 
-    console.log(milestoneController.milestones);
-
     // Get the last reached milestone
     const lastMilestone = milestoneController.milestones.filter(milestone => milestone.reached).pop();
 
-    // Show the milestone recap message
+    // Show the milestone recap message with custom text
     if (lastMilestone) {
-        gameGui.showMilestoneRecap(lastMilestone);
+        const customText = milestoneController.milestoneTexts[lastMilestone.level];
+        gameGui.showMilestoneRecap(lastMilestone, customText);
     }
 
     // Instantiate the GameController class

@@ -9,6 +9,14 @@ class MilestoneController {
             { level: 17, reached: false },
             { level: 21, reached: false },
         ];
+        this.milestoneTexts = {
+            0: "Custom text for milestone Level 0",
+            5: "Custom text for milestone Level 5",
+            9: "Custom text for milestone Level 9",
+            12: "Custom text for milestone Level 12",
+            17: "Custom text for milestone Level 17",
+            21: "Custom text for milestone Level 21",
+        };
     }
 
     checkForMilestones(treeLevel) {

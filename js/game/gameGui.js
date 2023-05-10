@@ -32,7 +32,7 @@ class GameGui {
         this.createLeaderboardButton();
     }
 
-    showMilestoneRecap(lastMilestone) {
+    showMilestoneRecap(lastMilestone, customText) {
         // Create a fullscreen UI
         const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI", true);
 
@@ -43,13 +43,14 @@ class GameGui {
         recapPanel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
         advancedTexture.addControl(recapPanel);
 
-        // Create a TextBlock for the milestone recap message
-        const recapText = new BABYLON.GUI.TextBlock();
-        recapText.text = `Last milestone reached: Level ${lastMilestone.level}`;
-        recapText.color = "white";
-        recapText.fontSize = 18;
-        recapText.height = "50px";
-        recapPanel.addControl(recapText);
+        // Create a TextBlock for the custom text
+        const customTextBlock = new BABYLON.GUI.TextBlock();
+        customTextBlock.text = customText;
+        customTextBlock.color = "white";
+        customTextBlock.fontSize = 16;
+        customTextBlock.height = "50px";
+        recapPanel.addControl(customTextBlock);
+        
 
         // Create a close button to dismiss the recap message
         const closeButton = BABYLON.GUI.Button.CreateSimpleButton("closeButton", "Close");
