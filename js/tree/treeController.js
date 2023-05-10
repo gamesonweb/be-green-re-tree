@@ -117,13 +117,14 @@ class TreeController {
             // Update user's CO2 and owned trees
             this.userDataModel.userData.CO2 -= upgradeCost;
             treeToUpgrade.level = nextLevel;
-            if (treeToUpgrade.level == 5) {
+            let i = 5;
+            if (treeToUpgrade.level == i) {
                 console.log("New milestone reached!")
                 // Get a random question on file csv
                 let question = QuestionsModel.get_random();
                 console.log(question);
-                // Check if there are no other trees at level 9
-                let noLeve5Trees = this.userDataModel.userData.trees.every(tree => tree.level <= 5);
+                // Check if there are no other trees at level 5
+                let noLeve5Trees = this.userDataModel.userData.trees.every(tree => tree.level <= i);
 
                 if (noLeve5Trees) {
                     console.log("New milestone reached!")

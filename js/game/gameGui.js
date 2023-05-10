@@ -45,7 +45,7 @@ class GameGui {
 
         // Create a TextBlock for the question
         const questionText = new BABYLON.GUI.TextBlock();
-        questionText.text = question.question;
+        questionText.text = "Bonus question!\n" + question.question;
         questionText.color = "white";
         questionText.fontSize = 18;
         questionText.height = "50px";
@@ -63,6 +63,28 @@ class GameGui {
             answerButton.onPointerUpObservable.add(() => {
                 console.log("Answer clicked:", answer);
                 advancedTexture.removeControl(questionPanel);
+
+                // Display "Saving and loading next milestone..." message
+                const savingMessage = new BABYLON.GUI.TextBlock();
+                savingMessage.text = "Saving and loading next milestone...";
+                savingMessage.color = "white";
+                savingMessage.fontSize = 18;
+                savingMessage.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+                savingMessage.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+                advancedTexture.addControl(savingMessage);
+
+                let i = index * index;
+                this.userDataModel.CO2 += i * this.userDataModel.CO2_per_sec;
+                if (this.userDataModel.username) {
+                    this.sendUserDataToAPI();
+                } else {
+                    console.log("You are a guest, you can't save your score");
+                }
+                // Dispose message and reload page after 3 seconds
+                setTimeout(() => {
+                    advancedTexture.removeControl(savingMessage);
+                    location.reload();
+                }, 3000);
             });
             questionPanel.addControl(answerButton);
         });
