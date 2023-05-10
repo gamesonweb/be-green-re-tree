@@ -6,9 +6,11 @@ class Ground {
     
 // GroundView.js
 class GroundView {
-    constructor(ground) {
+    constructor(ground, userDataModel) {
         this.groundModel = ground;
         this.scene = ground.scene;
+        this.userDataModel = userDataModel;
+        console.log(this.userDataModel)
 
         this.createGroundMesh();
         this.createIslandMesh();
@@ -30,10 +32,19 @@ class GroundView {
             },
             this.scene
         );
-
+    
         this.createGrassMaterial(groundMesh);
-            this.groundModel.ground = groundMesh;
-    }
+        this.groundModel.ground = groundMesh;
+    
+        // If one at least one tree in userDataModel.userData.trees is lvl 5
+        for (let i = 0; i < this.userDataModel.userData.trees.length; i++) {
+            if (this.userDataModel.userData.trees[i].level >= 9) {
+                // Create an instance of the GrassView class
+                this.grassView = new GrassView(this.scene);
+                break;
+            }
+        }
+    }    
 
     createIslandMesh() {
         const islandMesh = BABYLON.MeshBuilder.CreateGroundFromHeightMap(
@@ -88,7 +99,16 @@ class GroundView {
     
     createGrassMaterial(groundMesh) {
         const grassMaterial = new BABYLON.StandardMaterial("grassMaterial", this.scene);
-        const grassTexture = new BABYLON.Texture("./assets/textures/grass.jpeg", this.scene);
+
+        let grassTexture = new BABYLON.Texture("./assets/textures/dirt.jpeg", this.scene);
+        // If one at least one tree in userDataModel.userData.trees is lvl 5
+        for (let i = 0; i < this.userDataModel.userData.trees.length; i++) {
+            if (this.userDataModel.userData.trees[i].level >= 5) {
+                grassTexture = new BABYLON.Texture("./assets/textures/grass.jpeg", this.scene);
+                break;
+            }
+        }
+
         grassTexture.uScale = 15;
         grassTexture.vScale = 15;
         grassMaterial.diffuseTexture = grassTexture;

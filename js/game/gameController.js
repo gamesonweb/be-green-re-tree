@@ -100,11 +100,11 @@ class GameController {
         };
     }
 
-    initGameComponents(scene) {
+    initGameComponents(scene, userDataModel) {
         this.ground = new Ground(scene);
 
         const groundSize = 100;
-        const groundView = new GroundView(this.ground);
+        const groundView = new GroundView(this.ground, userDataModel);
         
         const skyboxView = new SkyboxView(scene);
         skyboxView.createSkybox();

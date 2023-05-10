@@ -31,7 +31,7 @@ async function initGame() {
 
     this.userMenuController = new UserMenuController(gameGui, userDataModel);
 
-    gameController.initGameComponents(scene);
+    gameController.initGameComponents(scene, userDataModel);
 
     // Instantiate the Co2View and Co2Controller classes
     const co2View = new Co2View(scene);
