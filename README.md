@@ -74,6 +74,10 @@ Nous avons décidé d'adopter l'anglais comme langue de développement unique po
 - Google Realtime Database: User Database
 
 ## Points Clés
+- Jeu hébergé sur Github Pages
+- API hébergé sur Heroku
+- Database hébergé sur Google Realtime Database
+
 ### Développement
 Nous avons opté pour une approche de développement minimaliste en utilisant uniquement *HTML, CSS et JavaScript* natif pour le jeu. Toutes les ressources nécessaires sont chargées via des CDN ou des API, également développées en interne.
 
@@ -119,6 +123,8 @@ L'endpoint **/save_data** enregistre les données, les actualise et renvoie le c
 L'endpoint **/visit_user/string:username** renvoie les données de l'utilisateur demandé, renvoie le code 200 et le JSON de l'utilisateur. C'est particulièrement utile pour visiter les îles d'autres joueurs.
 
 Enfin, l'endpoint **/all_users** renvoie le code 200 et un JSON contenant tous les utilisateurs, qui est utilisé pour le tableau des scores.
+
+Le fichier example montre des examples de requetes pour debug. Procfile, runtime et requirements.txt sont nécessaires pour faire tourner l'API sur Heroku.
 
 ### Ambiance Musicale
 Nous avons exploré deux méthodes pour créer une ambiance sonore immersive. Nous avons utilisé **window.AudioContext** pour la musique d'ambiance, générée en 2022 par MuBERT sur la base du prompt : "*Chill Music style Minecraft, loop*". Par ailleurs, nous avons utilisé **BABYLON.Sound** pour les effets sonores des bulles, dont les échantillons proviennent de Freesound.
