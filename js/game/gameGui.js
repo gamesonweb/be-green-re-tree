@@ -19,6 +19,7 @@ class GameGui {
 
     buildGui() {
         this.createScoreboardContainer();
+        this.createUsernameContainer();
         this.createScoreText();
         this.createTreeStatsContainer();
         this.createTreeSlidersContainer();
@@ -346,6 +347,32 @@ class GameGui {
         this.resetButton.paddingBottom = "10px";
         this.resetButton.paddingRight = "10px";
         this.advancedTexture.addControl(this.resetButton);
+    }
+
+    // Score container
+    createUsernameContainer() {
+        this.UsernameContainer = new this.GUI.Rectangle("scoreboardContainer");
+        this.UsernameContainer.width = "300px";
+        this.UsernameContainer.height = "80px";
+        this.UsernameContainer.cornerRadius = 5;
+        this.UsernameContainer.color = "white";
+        this.UsernameContainer.thickness = 2;
+        this.UsernameContainer.background = "rgba(0, 0, 0, 0.5)";
+        this.UsernameContainer.verticalAlignment = this.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+        this.UsernameContainer.horizontalAlignment = this.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+        this.UsernameContainer.paddingTop = "10px";
+        this.UsernameContainer.paddingLeft = "10px";
+        this.advancedTexture.addControl(this.UsernameContainer);
+        this.usernameText = new this.GUI.TextBlock();
+        let username = "Guest";
+        if (this.userDataModel.username) {
+            username = this.userDataModel.username;
+        }
+        this.usernameText.text = "Welcome back\n" + username;
+        this.usernameText.color = "white";
+        this.usernameText.fontSize = 24;
+        // this.usernameText.top = "15px";
+        this.UsernameContainer.addControl(this.usernameText);
     }
 
     // Score container
