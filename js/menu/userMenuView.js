@@ -23,7 +23,7 @@ class UserMenuView {
                 "Connect",
                 "Play as guest",
                 "Watch cinematic",
-                "Read gameplay",
+                "Watch gameplay",
             ][i]);
             option.width = "100%";
             option.height = "20%";

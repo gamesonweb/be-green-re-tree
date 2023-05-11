@@ -376,8 +376,8 @@ class GameGui {
         this.scoreText2.fontSize = 24;
         this.scoreText2.top = "15px";
         // this.scoreText2.paddingTop = "24px";
-        this.scoreboardContainer.addControl(this.scoreText);
         this.scoreboardContainer.addControl(this.scoreText2);
+        this.scoreboardContainer.addControl(this.scoreText);
     }
 
     updateScoreText(value) {

@@ -10,13 +10,13 @@ class MilestoneController {
             { level: 21, reached: false },
         ];
         this.milestoneTexts = {
-            0: "You just arrived on a deserted island with dead trees. Do your best to reforest it!",
-            5: "Great start! You've reached Level 5. Keep planting trees and watch your forest grow!",
-            9: "Impressive! Your trees have reached Level 9. Continue your efforts to make the island greener.",
-            12: "Amazing work! Your trees are now Level 12. The island's transformation is well underway.",
-            17: "Incredible progress! Your trees have reached Level 17. The once deserted island is now a thriving forest.",
-            21: "Outstanding achievement! You've reached Level 21. Your commitment has turned the island into a lush, green paradise.",
-        };        
+            0: "You just arrived on a deserted island with dead trees. The sky is gray and there is no life, your mission is to reforest this island, you are the last chance.",
+            5: "Well done, you got your first tree to Level 5, it's a pine and it collects more CO2 than dead trees! Now your island is becoming greener, Continue to reach Level 9!",
+            9: "Congrats! You've reached Level 9, the sky is becoming lighter and you've got your first dark pine, it collects more CO2 than normal pine, try to reach Level 12.",
+            12: "Amazing! You've got your first small oak and you now have moving grass on your island! The next milestone is Level 17.",
+            17: "Incredible! You've unlocked your first major oak and it consumes even more CO2! Continue to the last milestone, Level 21.",
+            21: "Now you are green! Your island is full of life. Why not challenge yourself and try to reach the ultimate tree level, 28?",
+        };           
     }
 
     checkForMilestones(treeLevel) {
