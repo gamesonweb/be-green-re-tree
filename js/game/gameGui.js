@@ -351,8 +351,8 @@ class GameGui {
     // Score container
     createScoreboardContainer() {
         this.scoreboardContainer = new this.GUI.Rectangle("scoreboardContainer");
-        this.scoreboardContainer.width = "200px";
-        this.scoreboardContainer.height = "60px";
+        this.scoreboardContainer.width = "300px";
+        this.scoreboardContainer.height = "80px";
         this.scoreboardContainer.cornerRadius = 5;
         this.scoreboardContainer.color = "white";
         this.scoreboardContainer.thickness = 2;
@@ -369,11 +369,23 @@ class GameGui {
         this.scoreText.text = "CO2: 0";
         this.scoreText.color = "white";
         this.scoreText.fontSize = 24;
+        this.scoreText.paddingTop = "-15px";
+        this.scoreText2 = new this.GUI.TextBlock();
+        this.scoreText2.text = "CO2/sec: 0";
+        this.scoreText2.color = "white";
+        this.scoreText2.fontSize = 24;
+        this.scoreText2.top = "15px";
+        // this.scoreText2.paddingTop = "24px";
         this.scoreboardContainer.addControl(this.scoreText);
+        this.scoreboardContainer.addControl(this.scoreText2);
     }
 
     updateScoreText(value) {
         this.scoreText.text = `CO2: ${value}`;
+    }
+
+    updateScoreText2(value) {
+        this.scoreText2.text = `CO2/sec: ${value}`;
     }
 
     // To move from here

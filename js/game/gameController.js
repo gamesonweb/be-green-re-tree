@@ -68,6 +68,7 @@ class GameController {
     updateScore() {
         const { CO2 } = this.userDataModel.userData;
         this.gameGui.updateScoreText(CO2);
+        this.gameGui.updateScoreText2(this.userDataModel.userData.CO2_per_sec);
         this.userDataModel.saveUserData();
     }
 

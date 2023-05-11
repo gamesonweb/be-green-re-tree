@@ -45,8 +45,8 @@
 ## Games on Web, auto evaluation
 - [ ] Documentation (0, 5, *10*)
 - [ ] Video / Gameplay (0, 5, *10*)
-- [ ] Accessible online (10, *20*)
-- [X] Design and graphics (5, 10, *20*)
-- [ ] Story, originality, thematic respected (0, 5, *10*)
-- [ ] Performances (0, 10, 20, *30*)
-- [ ] Fun (5, *10, 20, 25*)
+- [x] Accessible online (10, *20*)
+- [x] Design and graphics (5, 10, *20*)
+- [x] Story, originality, thematic respected (0, 5, *10*)
+- [x] Performances (0, 10, 20, *30*)
+- [x] Fun (5, *10, 20, 25*)
