@@ -35,18 +35,20 @@ class GroundView {
     
         this.createGrassMaterial(groundMesh);
         this.groundModel.ground = groundMesh;
+        console.log(this.userDataModel.userData.trees.length)
     
-        // If one at least one tree in userDataModel.userData.trees is lvl 5
+        // If one at least one tree in userDataModel.userData.trees is lvl 17 or 12
         for (let i = 0; i < this.userDataModel.userData.trees.length; i++) {
+            console.log(this.userDataModel.userData.trees[i].level)
             if (this.userDataModel.userData.trees[i].level >= 17) {
                 // Create an instance of the GrassView class
                 this.grassView = new GrassView(this.scene, "high");
-                break;
+                // break;
             }
             else if (this.userDataModel.userData.trees[i].level >= 12) {
                 // Create an instance of the GrassView class
                 this.grassView = new GrassView(this.scene);
-                break;
+                // break;
             }
         }
     }    

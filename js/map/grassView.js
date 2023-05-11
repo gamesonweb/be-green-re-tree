@@ -82,14 +82,14 @@ class GrassView {
             let numInstances = 1000;
             console.log(this.grassType);
             if (this.grassType == "high"){
-                numInstances = 14400;
+                numInstances = 4400;
             }
             const bufferMatrices = new Float32Array(16 * numInstances);
             const bufferFrequency = new Float32Array(numInstances);
             const bufferWaveLength = new Float32Array(numInstances);
             const bufferWaveSize = new Float32Array(numInstances);
             for(let i=0;i<numInstances;++i){
-                const matrix = BABYLON.Matrix.Translation(Math.random()*50-28, 0.9, Math.random()*50-22); // Change the X and Z values from 60 to 50
+                const matrix = BABYLON.Matrix.Translation(Math.random()*50-28, 0.8, Math.random()*50-22); // Change the X and Z values from 60 to 50
                 matrix.copyToArray(bufferMatrices, i*16);
                 bufferFrequency[i] = 0.008 + (Math.random() - 0.5) / 400;
                 bufferWaveLength[i] = 0.05 + (Math.random() - 0.5) / 40;

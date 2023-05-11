@@ -8,6 +8,7 @@ class MilestoneController {
             { level: 12, reached: false },
             { level: 17, reached: false },
             { level: 21, reached: false },
+            { level: 28, reached: false },
         ];
         this.milestoneTexts = {
             0: "You just arrived on a deserted island with dead trees. The sky is gray and there is no life, your mission is to reforest this island, you are the last chance.",
@@ -16,6 +17,7 @@ class MilestoneController {
             12: "Amazing! You've got your first small oak and you now have moving grass on your island! The next milestone is Level 17.",
             17: "Incredible! You've unlocked your first major oak and it consumes even more CO2! Continue to the last milestone, Level 21.",
             21: "Now you are green! Your island is full of life. Why not challenge yourself and try to reach the ultimate tree level, 28?",
+            28: "You are the best! You've reached the ultimate tree level, 28! Your island is now full of life and you've saved the planet!",
         };           
     }
 

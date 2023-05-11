@@ -56,7 +56,7 @@ class UserMenuController {
                     break;
                 case 5:
                     // Watch gameplay
-                    // await this.showYoutubeVideoFullscreen('l_qAVfj-_08');
+                    await this.showYoutubeVideoFullscreen('ol6_yWQn-tI');
                     break;
             }
         };
