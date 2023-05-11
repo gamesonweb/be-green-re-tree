@@ -35,7 +35,6 @@ class GroundView {
     
         this.createGrassMaterial(groundMesh);
         this.groundModel.ground = groundMesh;
-        console.log(this.userDataModel.userData.trees.length)
     
         // If one at least one tree in userDataModel.userData.trees is lvl 17 or 12
         for (let i = 0; i < this.userDataModel.userData.trees.length; i++) {
