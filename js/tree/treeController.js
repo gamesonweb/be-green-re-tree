@@ -118,21 +118,21 @@ class TreeController {
             // Update user's CO2 and owned trees
             this.userDataModel.userData.CO2 -= upgradeCost;
             treeToUpgrade.level = nextLevel;
-    
-            // Test if treeToUpgrade.level is a milestone
-            if (this.milestoneController.milestoneTexts.hasOwnProperty(treeToUpgrade.level)) {
-                // Check if the milestone is not already reached
-                if (!this.milestoneController.milestones.includes(treeToUpgrade.level)) {
-                    // Add the milestone to the reached milestones
-                    this.milestoneController.milestones.push(treeToUpgrade.level);
-    
-                    // Get a random question from the CSV file
-                    let question = QuestionsModel.get_random();
-                    console.log(question);
-    
-                    this.gameGui.showMilestoneMessage(question);
-                }
+            // Find the milestone object for treeToUpgrade.level
+            let milestone = this.milestoneController.milestones.find(milestone => milestone.level === treeToUpgrade.level);
+
+            // Check if the milestone exists and if it's not already reached
+            if (milestone && !milestone.reached) {
+                // Set the milestone to reached
+                milestone.reached = true;
+
+                // Get a random question from the CSV file
+                let question = QuestionsModel.get_random();
+                console.log(question);
+
+                this.gameGui.showMilestoneMessage(question);
             }
+
     
             // Update user's total CO2 per second
             treeToUpgrade.co2PerSecond = this.treeUpgraderModel.getCo2PerSecond(nextLevel);
