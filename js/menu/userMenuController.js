@@ -55,8 +55,8 @@ class UserMenuController {
                     await this.showYoutubeVideoFullscreen('l_qAVfj-_08');
                     break;
                 case 5:
-                    // Read storyline
-                    // Add your read storyline logic here
+                    // Watch gameplay
+                    // await this.showYoutubeVideoFullscreen('l_qAVfj-_08');
                     break;
             }
         };
@@ -80,10 +80,13 @@ class UserMenuController {
                 .then(response => response.json())
                 .then(console.log)
                 .then(data => {
-                    console.log(data);
                     this.userDataModel.userData.username = username;
+                    // Save the data to the local storage
+                    this.userDataModel.saveUserData();
                     // Close the user menu after fetching the data
                     this.userMenuView.dispose();
+                    // Reload the page to update the game
+                    location.reload();
                 });
             }
             else {

@@ -28,7 +28,7 @@ class UserMenuView {
             option.width = "100%";
             option.height = "20%";
             option.color = "white";
-            option.background = "green";
+            option.background = "gray";
             option.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
             option.top = (i * 20) + "%";
     
