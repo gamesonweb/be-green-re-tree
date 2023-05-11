@@ -80,17 +80,18 @@ class GameGui {
 
         // Create a TextBlock for the question
         const questionText = new BABYLON.GUI.TextBlock();
-        questionText.text = "Bonus question!\n" + question.question;
+        questionText.text = "Milestone reach! Bonus question:\n" + question.question;
+        questionText.textWrapping = BABYLON.GUI.TextWrapping.WordWrap;
         questionText.color = "white";
         questionText.fontSize = 18;
-        questionText.height = "50px";
+        questionText.height = "150px";
         questionPanel.addControl(questionText);
 
         // Create Buttons for the answers
         question.answers.forEach((answer, index) => {
             const answerButton = BABYLON.GUI.Button.CreateSimpleButton("answerButton" + index, answer);
             answerButton.width = "100%";
-            answerButton.height = "40px";
+            answerButton.height = "60px";
             answerButton.color = "white";
             answerButton.background = "black";
             answerButton.paddingTop = "2px";
@@ -103,7 +104,7 @@ class GameGui {
                 const savingMessage = new BABYLON.GUI.TextBlock();
                 savingMessage.text = "Saving and loading next milestone...";
                 savingMessage.color = "white";
-                savingMessage.fontSize = 18;
+                savingMessage.fontSize = 12;
                 savingMessage.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
                 savingMessage.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
                 advancedTexture.addControl(savingMessage);
