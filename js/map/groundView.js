@@ -38,7 +38,12 @@ class GroundView {
     
         // If one at least one tree in userDataModel.userData.trees is lvl 5
         for (let i = 0; i < this.userDataModel.userData.trees.length; i++) {
-            if (this.userDataModel.userData.trees[i].level >= 9) {
+            if (this.userDataModel.userData.trees[i].level >= 17) {
+                // Create an instance of the GrassView class
+                this.grassView = new GrassView(this.scene, "high");
+                break;
+            }
+            else if (this.userDataModel.userData.trees[i].level >= 12) {
                 // Create an instance of the GrassView class
                 this.grassView = new GrassView(this.scene);
                 break;

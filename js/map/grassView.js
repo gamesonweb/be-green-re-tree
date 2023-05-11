@@ -1,7 +1,8 @@
 // Adapted from https://playground.babylonjs.com/#NZDFUB#1
 class GrassView {
-    constructor(scene) {
+    constructor(scene, grassType = "low") {
         this.scene = scene;
+        this.grassType = grassType;
         this._createGrass();
     }
 
@@ -78,8 +79,11 @@ class GrassView {
         meshTask.onSuccess = (task) => {
             const grassMesh = task.loadedMeshes[0];
             grassMesh.material = shaderMaterial;
-            // const numInstances = 14400;
-            const numInstances = 1000;
+            let numInstances = 1000;
+            console.log(this.grassType);
+            if (this.grassType == "high"){
+                numInstances = 14400;
+            }
             const bufferMatrices = new Float32Array(16 * numInstances);
             const bufferFrequency = new Float32Array(numInstances);
             const bufferWaveLength = new Float32Array(numInstances);

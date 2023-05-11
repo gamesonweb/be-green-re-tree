@@ -106,9 +106,15 @@ class GameController {
 
         const groundSize = 100;
         const groundView = new GroundView(this.ground, userDataModel);
-        
-        const skyboxView = new SkyboxView(scene);
-        skyboxView.createSkybox();
+
+        for (let i = 0; i < this.userDataModel.userData.trees.length; i++) {
+            if (this.userDataModel.userData.trees[i].level >= 9) {
+                // Create the skybox
+                const skyboxView = new SkyboxView(scene);
+                skyboxView.createSkybox();
+                break;
+            }
+        }
         
         const continuousGroundView = new ContinuousGroundView(this.ground, groundSize);
         continuousGroundView.createContinuousGroundMesh();
