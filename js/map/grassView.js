@@ -80,7 +80,6 @@ class GrassView {
             const grassMesh = task.loadedMeshes[0];
             grassMesh.material = shaderMaterial;
             let numInstances = 1000;
-            console.log(this.grassType);
             if (this.grassType == "high"){
                 numInstances = 4400;
             }

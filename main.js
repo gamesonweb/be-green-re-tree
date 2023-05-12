@@ -5,12 +5,10 @@ async function initGame() {
 
     // Create a UserDataModel instance
     const userDataModel = new UserDataModel();
-    console.log(userDataModel);
 
     if (exampleParam) {
         userDataModel.userData = await UserDataModel.fetchUserData(exampleParam);
         userDataModel.visitor = true;
-        console.log(userDataModel.userData)
     } 
 
     // Get the canvas element, create the Babylon.js engine
@@ -72,7 +70,6 @@ async function initGame() {
     // Create 25 trees
     // BUG HERE ONLINE FIRST CONNEXION: caught (in promise) TypeError: Cannot read properties of undefined (reading 'length')
     // Coreectd the user data first pelase
-    console.log(userDataModel.userData.trees);
     const numTrees = userDataModel.userData.trees.length;
     const treeViews = [];
     const generatedTreeModels = [];

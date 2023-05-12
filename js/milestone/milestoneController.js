@@ -25,11 +25,8 @@ class MilestoneController {
         this.milestones.forEach((milestone) => {
             if (treeLevel === milestone.level && !milestone.reached) {
                 milestone.reached = true;
-                console.log(`New milestone reached: Level ${milestone.level}`);
-
                 // Get a random question from the CSV file
                 let question = QuestionsModel.get_random();
-                console.log(question);
 
                 this.gameGui.showMilestoneMessage(question);
             }

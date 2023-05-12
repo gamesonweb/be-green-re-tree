@@ -42,8 +42,6 @@ class TreeView {
     }
 
     updateTreePosition(treeModel) {
-        console.log("Updating tree position", treeModel); // Log the treeModel to check the values
-
         this.treeMesh.forEach(mesh => {
             if (mesh.treeID === treeModel.id) {
                 mesh.position.set(treeModel.x, treeModel.y, treeModel.z);
@@ -53,7 +51,6 @@ class TreeView {
                 console.log("treeModel.id ", treeModel.id);
             }
         });
-        // this.update()
     }    
     
     loadTreeMesh() {

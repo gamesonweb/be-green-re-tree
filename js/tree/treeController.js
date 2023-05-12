@@ -30,8 +30,6 @@ class TreeController {
             
     handleTreeClick(evt, treeModel) {
         this.selectedTree = treeModel;
-        console.log(this.treeView)
-        console.log(this.selectedTree)
         const upgradeCost = this.treeUpgraderModel.getUpgradeCost(treeModel.level + 1);
         this.gameGui.updateTreeStats(treeModel);
         this.gameGui.updateUpgradeCost(upgradeCost);
@@ -128,7 +126,6 @@ class TreeController {
 
                 // Get a random question from the CSV file
                 let question = QuestionsModel.get_random();
-                console.log(question);
 
                 this.gameGui.showMilestoneMessage(question);
             }
@@ -148,17 +145,3 @@ class TreeController {
         }
     }    
 }    
-
-// if (treeToUpgrade.level == i) {
-//     console.log("New milestone reached!")
-//     // Get a random question on file csv
-//     let question = QuestionsModel.get_random();
-//     console.log(question);
-//     // Check if there are no other trees at level 5
-//     let noLeve5Trees = this.userDataModel.userData.trees.every(tree => tree.level <= i);
-
-//     if (noLeve5Trees) {
-//         console.log("New milestone reached!")
-//         this.gameGui.showMilestoneMessage(question);
-//     }
-// }

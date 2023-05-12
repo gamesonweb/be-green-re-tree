@@ -68,7 +68,6 @@ class GameGui {
     }
 
     showMilestoneMessage(question) {
-        console.log("question");
         // Create a fullscreen UI
         const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
 
@@ -98,7 +97,6 @@ class GameGui {
             answerButton.paddingTop = "2px";
             answerButton.paddingBottom = "2px";
             answerButton.onPointerUpObservable.add(() => {
-                console.log("Answer clicked:", answer);
                 advancedTexture.removeControl(questionPanel);
 
                 // Display "Saving and loading next milestone..." message
@@ -452,7 +450,6 @@ class GameGui {
 
         this.antModeButton.onPointerUpObservable.add(() => {
             // If guest is !true, save with api
-            console.log(this.userDataModel)
             if (this.userDataModel.username) {
                 this.sendUserDataToAPI();
             } else {

@@ -10,7 +10,6 @@ class UserMenuController {
 
     setupUserMenuButtonEvent() {
         this.gameGui.userMenuButton.onPointerUpObservable.add(async () => {
-            console.log('User menu button clicked');
             if (this.isMenuVisible()) {
                 this.hideMenu();
             } else {
@@ -99,7 +98,6 @@ class UserMenuController {
                         }
                     })
                     .then(data => {
-                        console.log(data);
                         this.userDataModel.userData = data;
                         // Save the data to the local storage
                         this.userDataModel.saveUserData();
