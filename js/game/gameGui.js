@@ -17,6 +17,7 @@ class GameGui {
         this.audioController = this.createAudioController();
     }
 
+    // Create the GUI components
     buildGui() {
         this.createScoreboardContainer();
         this.createUsernameContainer();

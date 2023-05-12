@@ -18,15 +18,18 @@ class AudioModel {
     }
 
     pause() {
+        // Pause audio
         this.audioElement.pause();
         this.muted = true;
     }
 
     setLoop(loop) {
+        // Set loop
         this.audioElement.loop = loop;
     }
 
     setVolume(volume) {
+        // Set volume
         this.audioElement.volume = volume / 100;
     }
 }

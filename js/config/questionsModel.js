@@ -1,4 +1,5 @@
 class QuestionsModel {
+    // Adapted from the CSV
     static questions = [
         {
             question: "How do you typically commute to work or school?",
@@ -215,6 +216,7 @@ class QuestionsModel {
 
     // Make the questions accessible without the need to instantiate the class
     static get_random() {
+        // Get a random question
         const randomIndex = Math.floor(Math.random() * QuestionsModel.questions.length);
         return QuestionsModel.questions[randomIndex];
     }

@@ -12,7 +12,9 @@ class Co2Controller {
     }
 
     startSpawning() {
-        const spawnRate = this.userDataModel.userData.CO2_spawn_rate || 10000; // Default to 10 seconds if not set
+        // Default to 10 seconds if not set
+        // TODO: Make this a user variable
+        const spawnRate = this.userDataModel.userData.CO2_spawn_rate || 10000; 
         this.spawnInterval = setInterval(() => {
             if (this.spheres.length < 5) { // Check if there are fewer than 5 spheres on the map
                 // Generate the CO2 value for the sphere based on the user data
@@ -29,6 +31,7 @@ class Co2Controller {
     }
 
     stopSpawning() {
+        // Stop spawning spheres
         if (this.spawnInterval) {
             clearInterval(this.spawnInterval);
             this.spawnInterval = null;
@@ -42,10 +45,12 @@ class Co2Controller {
     }
 
     onSphereClicked(sphere) {
+        // Remove the sphere from the array
         const index = this.spheres.indexOf(sphere);
         if (index !== -1) {
             this.spheres.splice(index, 1);
         }
+        // Update the user's CO2
         this.gameController.incrementScore(sphere.co2Model.co2Value);
     }
 }
