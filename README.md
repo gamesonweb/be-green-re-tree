@@ -6,27 +6,89 @@
 Découvrez Re-Tree, un jeux de simulation présenté lors de Games on Web 2023! Dans un contexte ou la terre, détruite par les catastrophes écologique, vous incarnez le dernier espoir de l'humanité seul sur une petite île flottante avec ce qu'il reste de la végétation. Plongez à travers les bases du jeu, en découvrant l'interface, le contexte et l'objectif principal. Admirez les graphismes minimalistes et le design low poly tout en explorant les mécanismes de gameplay type jeux de gestion. Créez un compte ou jouez en tant que guest pour améliorer vos arbres et atteindre vos premiers jalons afin de reboiser votre île flottante. Accumulez un maximum de CO2 pour booster vos arbres, attrapez des bulles d'oxygène pour obtenir des bonus instantanés et répondez à des questions à chaque étape pour multiplier vos gains en CO2! Personnalisez l'apparence de votre île en déplaçant les arbres, en les améliorant et en atteignant les jalons pour la rendre plus verte. Avec Re-Tree, adoptez une attitude éco-responsable et amusez-vous en même temps! Ah et... Be Green!
 
 # Important link
+## Game
+- Game: https://gamesonweb.github.io/be-green-re-tree/
+
+## Code repo
 - Github Final link: https://github.com/gamesonweb/be-green-re-tree
 - Github of the API: https://github.com/Benjimo1997n2/re-tree-api
-- Github before creation of final one: https://github.com/Benjimo1997n2/Re-Tree
+- Github before creation of final one (lot of commits): https://github.com/Benjimo1997n2/Re-Tree
+
+## Videos
 - Trailer: https://www.youtube.com/watch?v=l_qAVfj-_08
-- Game: https://gamesonweb.github.io/be-green-re-tree/
-- Gameplay: https://youtu.be/ol6_yWQn-tI
+- Gameplay (long): https://youtu.be/ol6_yWQn-tI
+- Gameplay (short): https://youtu.be/3pKfURF6sz8
 - Speedrun: https://youtu.be/Ox3NxdV6gnk
-- Code presentation: TODO
+
+## API
 - API: https://re-tree-api.herokuapp.com/
+
+## Other
 - Competition: https://www.cgi.com/france/fr-fr/event/games-on-web-2023
 - Benjamin Molinet: http://benjamin-molinet.fr/resume.html
 - Ekaterina Sviridova: https://univ-cotedazur.fr/annuaire/ekaterina-sviridova
 
 # Gameplay Utilisateur
 ## Video
-- Gameplay: https://youtu.be/ol6_yWQn-tI
+- Gameplay (long): https://youtu.be/ol6_yWQn-tI
+- Gameplay (short): https://youtu.be/3pKfURF6sz8
 - Speedrun: https://youtu.be/Ox3NxdV6gnk
 - Trailer: https://youtu.be/l_qAVfj-_08
 - Re-Tree: https://gamesonweb.github.io/be-green-re-tree/
 - Scoreboard: https://gamesonweb.github.io/be-green-re-tree/scoreboard.html
 - Visite d'un joueur (le mode visiteur ne permets pas de sauvegarder): https://gamesonweb.github.io/be-green-re-tree/index.html?visit=Ekaterina
+
+## Screenshot
+### Menu utilisateur
+![User Menu](/assets/doc/UserMenu.png)
+Dans le menu utilisateur, vous pouvez :
+- Créer un utilisateur qui conservera vos scores et vos arbres actuels
+- Vous connecter à un utilisateur existant, récupérer et recharger les données
+- Jouer en tant qu'invité, toutes les données sont sauvegardées dans le navigateur
+- Visionner la vidéo de bande-annonce (https://www.youtube.com/watch?v=l_qAVfj-_08)
+- Visionner la vidéo de gameplay (version longue : https://youtu.be/ol6_yWQn-tI)
+
+### Menu externe
+![Extra Menu](/assets/doc/ExtraMenu.png)
+Dans le menu externe, vous pouvez :
+- Ouvrir le menu Utilisateur
+- Ouvrir le tableau des scores dans un nouvel onglet
+- Activer, désactiver et régler la musique
+
+### Information utilisateur
+![User Info](/assets/doc/UserInfo.png)
+Les informations de l'utilisateur sont en haut de l'écran et comprennent :
+- Le CO2 actuel
+- Le CO2 collecté par seconde
+- Le nom de l'utilisateur connecté
+
+### Sauvegarde et reset
+![Save and Reset](/assets/doc/SaveAndReset.png)
+En bas et en bas à droite de l'interface, vous pouvez :
+- Sauvegarder instantanément votre score (sauvegardé automatiquement toutes les 10 secondes)
+- Recommencer une nouvelle partie (ne remplace pas la partie précédente)
+
+### Vue in-game
+![Global View](/assets/doc/GlobalView.png)
+Une fois dans le jeu, vous pouvez :
+- Cliquer sur les arbres pour ouvrir les informations de l'arbre sélectionné
+- Cliquer sur les bulles blanches de CO2 pour collecter instantanément 10 fois votre production de CO2 par seconde.
+- Déplacer la caméra avec click gauche et glissez
+- Zoomer avec la molètte
+
+### Jalons
+![MilestonesReach](/assets/doc/MilestoneReach.png)
+![Milestones](/assets/doc/MilestoneRecap.png)
+Une fois qu'un de vos arbres atteint un jalon, vous recevrez un message et une question bonus :
+- Cliquez sur une réponse pour gagner entre 1 et 32 fois votre production de CO2 par seconde (dépends de how Green you are!)
+- Vous recevrez un message récapitulatif à chaque rechargement de partie
+
+### Scoreboard
+![Scoreboard](/assets/doc/Scoreboard.png)
+Dans le tableau des scores, vous pouvez:
+- Visualiser les scores des membres les plus Green
+- Visiter les îles des membres en cliquant sur "Visiter X"
+- Retourner sur votre île en cliquant en haut sur "Back to the game"
 
 ## Features implémentées
 Dans l'objectif de reboiser votre île, rescape du cataclysme écologique, vous pouvez:
@@ -47,6 +109,7 @@ Dans l'objectif de reboiser votre île, rescape du cataclysme écologique, vous 
 - Recommencez tout à zéro avec "Reset Score"!
 
 ## Features à venir
+- Changer d'hebergement car Github page lag parfois
 - Implémentation d'un shop permettant d'ajouter des items (bâtiments, décorations et végétation) supplémentaire
 - Items avec modificateurs sur le CO2 par secondes et spawn rate des capsules de CO2
 - Refonte visuelle de la GUI utilisateur

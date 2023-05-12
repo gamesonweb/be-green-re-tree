@@ -114,7 +114,7 @@ class TreeController {
         const upgradeCost = this.treeUpgraderModel.getUpgradeCost(nextLevel);
         const userCO2 = this.userDataModel.userData.CO2;
     
-        if (userCO2 >= upgradeCost) {
+        if (userCO2 >= upgradeCost && nextLevel < 28) {
             // Update user's CO2 and owned trees
             this.userDataModel.userData.CO2 -= upgradeCost;
             treeToUpgrade.level = nextLevel;
