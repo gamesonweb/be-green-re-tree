@@ -41,6 +41,7 @@ Découvrez Re-Tree, un jeux de simulation présenté lors de Games on Web 2023! 
 ## Screenshot
 ### Menu utilisateur
 ![User Menu](/assets/doc/UserMenu.png)
+
 Dans le menu utilisateur, vous pouvez :
 - Créer un utilisateur qui conservera vos scores et vos arbres actuels
 - Vous connecter à un utilisateur existant, récupérer et recharger les données
@@ -50,6 +51,7 @@ Dans le menu utilisateur, vous pouvez :
 
 ### Menu externe
 ![Extra Menu](/assets/doc/ExtraMenu.png)
+
 Dans le menu externe, vous pouvez :
 - Ouvrir le menu Utilisateur
 - Ouvrir le tableau des scores dans un nouvel onglet
@@ -57,6 +59,7 @@ Dans le menu externe, vous pouvez :
 
 ### Information utilisateur
 ![User Info](/assets/doc/UserInfo.png)
+
 Les informations de l'utilisateur sont en haut de l'écran et comprennent :
 - Le CO2 actuel
 - Le CO2 collecté par seconde
@@ -64,12 +67,14 @@ Les informations de l'utilisateur sont en haut de l'écran et comprennent :
 
 ### Sauvegarde et reset
 ![Save and Reset](/assets/doc/SaveAndReset.png)
+
 En bas et en bas à droite de l'interface, vous pouvez :
 - Sauvegarder instantanément votre score (sauvegardé automatiquement toutes les 10 secondes)
 - Recommencer une nouvelle partie (ne remplace pas la partie précédente)
 
 ### Vue in-game
 ![Global View](/assets/doc/GlobalView.png)
+
 Une fois dans le jeu, vous pouvez :
 - Cliquer sur les arbres pour ouvrir les informations de l'arbre sélectionné
 - Cliquer sur les bulles blanches de CO2 pour collecter instantanément 10 fois votre production de CO2 par seconde.
@@ -79,12 +84,14 @@ Une fois dans le jeu, vous pouvez :
 ### Jalons
 ![MilestonesReach](/assets/doc/MilestoneReach.png)
 ![Milestones](/assets/doc/MilestoneRecap.png)
+
 Une fois qu'un de vos arbres atteint un jalon, vous recevrez un message et une question bonus :
 - Cliquez sur une réponse pour gagner entre 1 et 32 fois votre production de CO2 par seconde (dépends de how Green you are!)
 - Vous recevrez un message récapitulatif à chaque rechargement de partie
 
 ### Scoreboard
 ![Scoreboard](/assets/doc/Scoreboard.png)
+
 Dans le tableau des scores, vous pouvez:
 - Visualiser les scores des membres les plus Green
 - Visiter les îles des membres en cliquant sur "Visiter X"
