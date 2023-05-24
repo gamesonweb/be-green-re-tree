@@ -24,6 +24,13 @@ async function initGame() {
     // Instantiate the GameGui class
     const gameGui = new GameGui(scene, userDataModel.userData, audioModel);
 
+    // Instantiate the GameController class
+    const gameController = new GameController(gameGui, userDataModel);
+
+    this.userMenuController = new UserMenuController(gameGui, userDataModel);
+
+    gameController.initGameComponents(scene, userDataModel);
+
     // Check for milestones
     const milestoneController = new MilestoneController(gameGui);
     milestoneController.loadMilestones(userDataModel.userData.trees);
@@ -36,13 +43,6 @@ async function initGame() {
         const customText = milestoneController.milestoneTexts[lastMilestone.level];
         gameGui.showMilestoneRecap(lastMilestone, customText);
     }
-
-    // Instantiate the GameController class
-    const gameController = new GameController(gameGui, userDataModel);
-
-    this.userMenuController = new UserMenuController(gameGui, userDataModel);
-
-    gameController.initGameComponents(scene, userDataModel);
 
     // Instantiate the Co2View and Co2Controller classes
     const co2View = new Co2View(scene);
